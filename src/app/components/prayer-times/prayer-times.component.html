@@ -54,19 +54,7 @@
                 </button>
             </div>
 
-            <!-- Player Card (Hidden via CSS to keep audio playing) -->
-            <div class="audio-player card glass-effect" [style.display]="showPlayer ? 'block' : 'none'">
-                <div class="player-header-row">
-                    <div class="player-info">
-                        <h3>مشغل القرآن الكريم</h3>
-                        <span class="reciter">سورة الفاتحة</span>
-                    </div>
-                    <button class="hide-btn" (click)="togglePlayer()" title="إخفاء">
-                        ✕
-                    </button>
-                </div>
-                <audio controls [src]="audioSource" class="main-audio"></audio>
-            </div>
+
         </div>
 
         <!-- Prayer Times Grid -->

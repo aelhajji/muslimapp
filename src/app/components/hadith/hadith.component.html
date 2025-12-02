@@ -1,4 +1,4 @@
-<div class="hadith-page">
+<div class="hadith-page" dir="rtl">
     <div class="container">
         <!-- Header -->
         <div class="page-header fade-in-up">
@@ -6,28 +6,78 @@
                 <span class="title-icon">📚</span>
                 <span>الأحاديث النبوية</span>
             </h1>
-            <p class="page-subtitle">أحاديث من صحيح البخاري ومسلم</p>
+            <p class="page-subtitle">تصفح وابحث في كتب الحديث الشريف</p>
         </div>
 
-        <!-- Category Filter -->
-        <div class="category-filter fade-in">
-            <button *ngFor="let category of categories" class="category-btn"
-                [class.active]="selectedCategory === category" (click)="selectedCategory = category">
-                {{ category }}
-            </button>
-        </div>
+        <!-- Controls Section -->
+        <div class="controls-section card glass-effect fade-in">
+            <!-- Book Selection -->
+            <div class="control-group">
+                <label for="edition-select">اختر الكتاب:</label>
+                <select id="edition-select" [(ngModel)]="selectedEdition" (change)="onEditionChange()"
+                    [disabled]="loadingBooks">
+                    <option *ngFor="let edition of editions" [value]="edition.name">
+                        {{ edition.displayName }}
+                    </option>
+                </select>
+            </div>
 
-        <!-- Hadiths Grid -->
-        <div class="hadiths-grid">
-            <div *ngFor="let hadith of filteredHadiths; let i = index" class="hadith-card card card-golden fade-in-up"
-                [style.animation-delay]="(i * 0.1) + 's'">
-                <div class="hadith-category">{{ hadith.category }}</div>
-                <p class="hadith-text">{{ hadith.text }}</p>
-                <div class="hadith-footer">
-                    <div class="hadith-narrator">📖 الراوي: {{ hadith.narrator }}</div>
-                    <div class="hadith-source">📕 المصدر: {{ hadith.source }}</div>
+            <!-- Search -->
+            <div class="control-group search-group">
+                <label for="hadith-search">بحث:</label>
+                <div class="search-input-wrapper">
+                    <input type="text" id="hadith-search" [(ngModel)]="searchTerm" (input)="onSearch()"
+                        placeholder="ابحث عن حديث..." [disabled]="loading">
+                    <span class="search-icon">🔍</span>
                 </div>
             </div>
+        </div>
+
+        <!-- Loading State -->
+        <div class="loading-state fade-in" *ngIf="loading || loadingBooks">
+            <div class="spinner"></div>
+            <p>جاري التحميل...</p>
+        </div>
+
+        <!-- Error State -->
+        <div class="error-message fade-in" *ngIf="error">
+            {{ error }}
+        </div>
+
+        <!-- Hadiths List -->
+        <div class="hadiths-container" *ngIf="!loading && !loadingBooks">
+            <div class="hadiths-list">
+                <div *ngFor="let hadith of paginatedHadiths; let i = index; let isLast = last"
+                    class="hadith-item fade-in-up" [style.animation-delay]="(i * 0.03) + 's'">
+
+                    <div class="hadith-meta">
+                        <span class="hadith-number">{{ hadith.hadithnumber }}</span>
+                        <span class="hadith-grade" *ngIf="hadith.grades && hadith.grades.length > 0">
+                            {{ hadith.grades[0].grade }}
+                        </span>
+                    </div>
+
+                    <div class="hadith-content">
+                        <div class="decorative-start"></div>
+                        <p class="hadith-text">{{ hadith.text }}</p>
+                        <div class="decorative-end"></div>
+                    </div>
+
+                    <div class="hadith-divider" *ngIf="!isLast"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pagination -->
+        <div class="pagination fade-in" *ngIf="filteredHadiths.length > itemsPerPage && !loading">
+            <button class="pagination-btn" (click)="prevPage()" [disabled]="currentPage === 1">السابق</button>
+            <span class="page-info">صفحة {{ currentPage }} من {{ totalPages }}</span>
+            <button class="pagination-btn" (click)="nextPage()" [disabled]="currentPage === totalPages">التالي</button>
+        </div>
+
+        <!-- No Results -->
+        <div class="no-results fade-in" *ngIf="!loading && filteredHadiths.length === 0 && !error">
+            <p>لا توجد نتائج مطابقة للبحث.</p>
         </div>
     </div>
 </div>

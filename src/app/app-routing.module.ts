@@ -6,6 +6,7 @@ import { HadithComponent } from './components/hadith/hadith.component';
 import { DuaaComponent } from './components/duaa/duaa.component';
 import { NamesComponent } from './components/names/names.component';
 import { PrayerTimesComponent } from './components/prayer-times/prayer-times.component';
+import { DeveloperComponent } from './components/developer/developer.component';
 
 const routes: Routes = [
     { path: '', component: HomeComponent },
@@ -14,6 +15,7 @@ const routes: Routes = [
     { path: 'duaa', component: DuaaComponent },
     { path: 'names', component: NamesComponent },
     { path: 'prayer-times', component: PrayerTimesComponent },
+    { path: 'developer', component: DeveloperComponent },
     { path: '**', redirectTo: '' }
 ];
 
