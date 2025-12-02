@@ -1,0 +1,95 @@
+<div class="prayer-times-page" dir="rtl">
+    <div class="container">
+        <!-- Header -->
+        <div class="page-header fade-in-up">
+            <h1 class="page-title">
+                <span class="title-icon">🕌</span>
+                <span>مواقيت الصلاة والقرآن</span>
+            </h1>
+            <p class="page-subtitle">حافظ على صلاتك في وقتها</p>
+        </div>
+
+        <!-- Search Section -->
+        <div class="search-section card glass-effect fade-in">
+            <div class="input-group">
+                <div class="input-wrapper">
+                    <label for="country">الدولة</label>
+                    <select id="country" [(ngModel)]="selectedCountry" (change)="onCountryChange()">
+                        <option value="" disabled selected>اختر الدولة</option>
+                        <option *ngFor="let country of countries" [value]="country.country">
+                            {{ country.country }}
+                        </option>
+                    </select>
+                </div>
+                <div class="input-wrapper">
+                    <label for="city">المدينة</label>
+                    <select id="city" [(ngModel)]="selectedCity" [disabled]="!selectedCountry">
+                        <option value="" disabled selected>اختر المدينة</option>
+                        <option *ngFor="let city of cities" [value]="city">
+                            {{ city }}
+                        </option>
+                    </select>
+                </div>
+                <button class="search-btn" (click)="getPrayerTimes()" [disabled]="loading || !selectedCity">
+                    {{ loading ? 'جاري التحميل...' : 'عرض المواقيت' }}
+                </button>
+            </div>
+            <div class="error-message" *ngIf="error">{{ error }}</div>
+        </div>
+
+        <!-- Date Display -->
+        <div class="info-section fade-in" *ngIf="hijriDate">
+            <div class="date-card card glass-effect">
+                <div class="date-label">التاريخ الهجري</div>
+                <div class="date-hijri">{{ hijriDate }}</div>
+            </div>
+        </div>
+
+        <!-- Audio Player Section -->
+        <div class="player-section fade-in-up">
+            <!-- Show Button (Visible only when hidden) -->
+            <div class="player-controls" *ngIf="!showPlayer">
+                <button class="show-player-btn" (click)="togglePlayer()">
+                    <span class="icon">🔊</span> إظهار المشغل
+                </button>
+            </div>
+
+            <!-- Player Card (Hidden via CSS to keep audio playing) -->
+            <div class="audio-player card glass-effect" [style.display]="showPlayer ? 'block' : 'none'">
+                <div class="player-header-row">
+                    <div class="player-info">
+                        <h3>مشغل القرآن الكريم</h3>
+                        <span class="reciter">سورة الفاتحة</span>
+                    </div>
+                    <button class="hide-btn" (click)="togglePlayer()" title="إخفاء">
+                        ✕
+                    </button>
+                </div>
+                <audio controls [src]="audioSource" class="main-audio"></audio>
+            </div>
+        </div>
+
+        <!-- Prayer Times Grid -->
+        <div class="prayer-times-grid" *ngIf="prayerTimes.length > 0">
+            <div *ngFor="let prayer of prayerTimes; let i = index" class="prayer-card card"
+                [class.current]="getCurrentPrayer() === prayer.name" [style.animation-delay]="(i * 0.1) + 's'">
+                <div class="prayer-icon">{{ prayer.icon }}</div>
+                <div class="prayer-info">
+                    <h3 class="prayer-name">{{ prayer.name }}</h3>
+                    <div class="prayer-time">{{ prayer.time }}</div>
+                </div>
+                <div class="prayer-checkmark" *ngIf="getCurrentPrayer() === prayer.name">✓</div>
+            </div>
+        </div>
+
+        <!-- Empty State / Note -->
+        <div class="note-section fade-in" *ngIf="!loading && prayerTimes.length === 0 && !error">
+            <div class="note card glass-effect">
+                <div class="note-icon">💡</div>
+                <p class="note-text">
+                    اختر دولتك ومدينتك لعرض مواقيت الصلاة.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

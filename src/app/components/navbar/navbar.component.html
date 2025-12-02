@@ -1,0 +1,47 @@
+<nav class="navbar">
+    <div class="container navbar-container">
+        <div class="navbar-brand">
+            <span class="brand-icon">☪</span>
+            <span class="brand-text">موقع إسلامي متكامل</span>
+        </div>
+
+        <button class="menu-toggle" (click)="toggleMenu()" [class.active]="isMenuOpen">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <ul class="navbar-menu" [class.active]="isMenuOpen">
+            <li class="menu-item">
+                <a routerLink="/quran" routerLinkActive="active" (click)="closeMenu()">
+                    <span class="menu-icon">📖</span>
+                    <span>القرآن الكريم</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a routerLink="/hadith" routerLinkActive="active" (click)="closeMenu()">
+                    <span class="menu-icon">📚</span>
+                    <span>الأحاديث</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a routerLink="/duaa" routerLinkActive="active" (click)="closeMenu()">
+                    <span class="menu-icon">🤲</span>
+                    <span>الأدعية</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a routerLink="/names" routerLinkActive="active" (click)="closeMenu()">
+                    <span class="menu-icon">✨</span>
+                    <span>أسماء الله الحسنى</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a routerLink="/prayer-times" routerLinkActive="active" (click)="closeMenu()">
+                    <span class="menu-icon">🕌</span>
+                    <span>مواقيت الصلاة</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>

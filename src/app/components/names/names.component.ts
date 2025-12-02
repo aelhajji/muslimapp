@@ -1,0 +1,123 @@
+import { Component } from '@angular/core';
+
+interface AllahName {
+    id: number;
+    arabic: string;
+    transliteration: string;
+    meaning: string;
+}
+
+@Component({
+    selector: 'app-names',
+    templateUrl: './names.component.html',
+    styleUrls: ['./names.component.css']
+})
+export class NamesComponent {
+    allahNames: AllahName[] = [
+        { id: 1, arabic: 'الرَّحْمَن', transliteration: 'Ar-Rahman', meaning: 'الرحمن الذي وسعت رحمتهكل شيء' },
+        { id: 2, arabic: 'الرَّحِيم', transliteration: 'Ar-Rahim', meaning: 'الرحيم بالمؤمنين' },
+        { id: 3, arabic: 'الْمَلِك', transliteration: 'Al-Malik', meaning: 'المالك لجميع الأشياء' },
+        { id: 4, arabic: 'الْقُدُّوس', transliteration: 'Al-Quddus', meaning: 'المنزه عن كل نقص' },
+        { id: 5, arabic: 'السَّلاَم', transliteration: 'As-Salam', meaning: 'السالم من كل عيب' },
+        { id: 6, arabic: 'الْمُؤْمِن', transliteration: 'Al-Mumin', meaning: 'المصدق لنفسه ولرسله' },
+        { id: 7, arabic: 'الْمُهَيْمِن', transliteration: 'Al-Muhaymin', meaning: 'المهيمن على خلقه' },
+        { id: 8, arabic: 'الْعَزِيز', transliteration: 'Al-Aziz', meaning: 'العزيز الذي لا يغلب' },
+        { id: 9, arabic: 'الْجَبَّار', transliteration: 'Al-Jabbar', meaning: 'الجبار في قدرته' },
+        { id: 10, arabic: 'الْمُتَكَبِّر', transliteration: 'Al-Mutakabbir', meaning: 'المتكبر عن كل سوء' },
+        { id: 11, arabic: 'الْخَالِق', transliteration: 'Al-Khaliq', meaning: 'الخالق لكل شيء' },
+        { id: 12, arabic: 'الْبَارِئ', transliteration: 'Al-Bari', meaning: 'البارئ المبدع' },
+        { id: 13, arabic: 'الْمُصَوِّر', transliteration: 'Al-Musawwir', meaning: 'المصور لجميع الموجودات' },
+        { id: 14, arabic: 'الْغَفَّار', transliteration: 'Al-Ghaffar', meaning: 'الغفار للذنوب' },
+        { id: 15, arabic: 'الْقَهَّار', transliteration: 'Al-Qahhar', meaning: 'القاهر لكل شيء' },
+        { id: 16, arabic: 'الْوَهَّاب', transliteration: 'Al-Wahhab', meaning: 'الوهاب المنعم' },
+        { id: 17, arabic: 'الرَّزَّاق', transliteration: 'Ar-Razzaq', meaning: 'الرزاق لجميع خلقه' },
+        { id: 18, arabic: 'الْفَتَّاح', transliteration: 'Al-Fattah', meaning: 'الفتاح الحاكم' },
+        { id: 19, arabic: 'اَلْعَلِيْم', transliteration: 'Al-Alim', meaning: 'العليم الذي أحاط بكل شيء' },
+        { id: 20, arabic: 'الْقَابِض', transliteration: 'Al-Qabid', meaning: 'القابض الرزق' },
+        { id: 21, arabic: 'الْبَاسِط', transliteration: 'Al-Basit', meaning: 'الباسط للرزق' },
+        { id: 22, arabic: 'الْخَافِض', transliteration: 'Al-Khafid', meaning: 'الخافض للمتكبرين' },
+        { id: 23, arabic: 'الرَّافِع', transliteration: 'Ar-Rafi', meaning: 'الرافع للمؤمنين' },
+        { id: 24, arabic: 'الْمُعِزّ', transliteration: 'Al-Muizz', meaning: 'المعز من يشاء' },
+        { id: 25, arabic: 'المُذِلّ', transliteration: 'Al-Mudhill', meaning: 'المذل للكافرين' },
+        { id: 26, arabic: 'السَّمِيع', transliteration: 'As-Sami', meaning: 'السميع لكل شيء' },
+        { id: 27, arabic: 'الْبَصِير', transliteration: 'Al-Basir', meaning: 'البصير بكل شيء' },
+        { id: 28, arabic: 'الْحَكَم', transliteration: 'Al-Hakam', meaning: 'الحكم العدل' },
+        { id: 29, arabic: 'الْعَدْل', transliteration: 'Al-Adl', meaning: 'العدل في حكمه' },
+        { id: 30, arabic: 'اللَّطِيف', transliteration: 'Al-Latif', meaning: 'اللطيف بعباده' },
+        { id: 31, arabic: 'الْخَبِير', transliteration: 'Al-Khabir', meaning: 'الخبير بكل شيء' },
+        { id: 32, arabic: 'الْحَلِيم', transliteration: 'Al-Halim', meaning: 'الحليم الصبور' },
+        { id: 33, arabic: 'الْعَظِيم', transliteration: 'Al-Azim', meaning: 'العظيم الذي لا حد لعظمته' },
+        { id: 34, arabic: 'الْغَفُور', transliteration: 'Al-Ghafur', meaning: 'الغفور لعباده' },
+        { id: 35, arabic: 'الشَّكُور', transliteration: 'Ash-Shakur', meaning: 'الشكور المجازي' },
+        { id: 36, arabic: 'الْعَلِيّ', transliteration: 'Al-Aliyy', meaning: 'العلي فوق خلقه' },
+        { id: 37, arabic: 'الْكَبِير', transliteration: 'Al-Kabir', meaning: 'الكبير العظيم' },
+        { id: 38, arabic: 'الْحَفِيظ', transliteration: 'Al-Hafiz', meaning: 'الحفيظ لكل شيء' },
+        { id: 39, arabic: 'المُقيْت', transliteration: 'Al-Muqit', meaning: 'المقيت الرازق' },
+        { id: 40, arabic: 'الْحسِيْب', transliteration: 'Al-Hasib', meaning: 'الحسيب الكافي' },
+        { id: 41, arabic: 'الْجَلِيل', transliteration: 'Al-Jalil', meaning: 'الجليل ذو الجلال' },
+        { id: 42, arabic: 'الْكَرِيم', transliteration: 'Al-Karim', meaning: 'الكريم المعطي' },
+        { id: 43, arabic: 'الرَّقِيب', transliteration: 'Ar-Raqib', meaning: 'الرقيب على كل شيء' },
+        { id: 44, arabic: 'الْمُجِيب', transliteration: 'Al-Mujib', meaning: 'المجيب للدعاء' },
+        { id: 45, arabic: 'الْوَاسِع', transliteration: 'Al-Wasi', meaning: 'الواسع العطاء' },
+        { id: 46, arabic: 'الْحَكِيم', transliteration: 'Al-Hakim', meaning: 'الحكيم في كل شيء' },
+        { id: 47, arabic: 'الْوَدُود', transliteration: 'Al-Wadud', meaning: 'الودود المحب' },
+        { id: 48, arabic: 'الْمَجِيد', transliteration: 'Al-Majid', meaning: 'المجيد الشريف' },
+        { id: 49, arabic: 'الْبَاعِث', transliteration: 'Al-Baith', meaning: 'الباعث للخلق' },
+        { id: 50, arabic: 'الشَّهِيد', transliteration: 'Ash-Shahid', meaning: 'الشهيد على كل شيء' },
+        { id: 51, arabic: 'الْحَقّ', transliteration: 'Al-Haqq', meaning: 'الحق الثابت' },
+        { id: 52, arabic: 'الْوَكِيل', transliteration: 'Al-Wakil', meaning: 'الوكيل الكافي' },
+        { id: 53, arabic: 'الْقَوِيّ', transliteration: 'Al-Qawiyy', meaning: 'القوي الشديد' },
+        { id: 54, arabic: 'الْمَتِين', transliteration: 'Al-Matin', meaning: 'المتين القوي' },
+        { id: 55, arabic: 'الْوَلِيّ', transliteration: 'Al-Waliyy', meaning: 'الولي الناصر' },
+        { id: 56, arabic: 'الْحَمِيد', transliteration: 'Al-Hamid', meaning: 'الحميد المحمود' },
+        { id: 57, arabic: 'الْمُحْصِي', transliteration: 'Al-Muhsi', meaning: 'المحصي لكل شيء' },
+        { id: 58, arabic: 'الْمُبْدِئ', transliteration: 'Al-Mubdi', meaning: 'المبدئ للخلق' },
+        { id: 59, arabic: 'الْمُعِيد', transliteration: 'Al-Muid', meaning: 'المعيد للخلق' },
+        { id: 60, arabic: 'الْمُحْيِي', transliteration: 'Al-Muhyi', meaning: 'المحيي للأموات' },
+        { id: 61, arabic: 'اَلْمُمِيت', transliteration: 'Al-Mumit', meaning: 'المميت للأحياء' },
+        { id: 62, arabic: 'الْحَيّ', transliteration: 'Al-Hayy', meaning: 'الحي الذي لا يموت' },
+        { id: 63, arabic: 'الْقَيُّوم', transliteration: 'Al-Qayyum', meaning: 'القيوم الدائم' },
+        { id: 64, arabic: 'الْوَاجِد', transliteration: 'Al-Wajid', meaning: 'الواجد لكل شيء' },
+        { id: 65, arabic: 'الْمَاجِد', transliteration: 'Al-Majid', meaning: 'الماجد الكريم' },
+        { id: 66, arabic: 'الْواحِد', transliteration: 'Al-Wahid', meaning: 'الواحد الأحد' },
+        { id: 67, arabic: 'اَلاَحَد', transliteration: 'Al-Ahad', meaning: 'الأحد الفرد' },
+        { id: 68, arabic: 'الصَّمَد', transliteration: 'As-Samad', meaning: 'الصمد المقصود' },
+        { id: 69, arabic: 'الْقَادِر', transliteration: 'Al-Qadir', meaning: 'القادر على كل شيء' },
+        { id: 70, arabic: 'الْمُقْتَدِر', transliteration: 'Al-Muqtadir', meaning: 'المقتدر القوي' },
+        { id: 71, arabic: 'الْمُقَدِّم', transliteration: 'Al-Muqaddim', meaning: 'المقدم لمن يشاء' },
+        { id: 72, arabic: 'الْمُؤَخِّر', transliteration: 'Al-Muakhkhir', meaning: 'المؤخر لمن يشاء' },
+        { id: 73, arabic: 'الأوَّل', transliteration: 'Al-Awwal', meaning: 'الأول قبل كل شيء' },
+        { id: 74, arabic: 'الآخِر', transliteration: 'Al-Akhir', meaning: 'الآخر بعد كل شيء' },
+        { id: 75, arabic: 'الظَّاهِر', transliteration: 'Az-Zahir', meaning: 'الظاهر الواضح' },
+        { id: 76, arabic: 'الْبَاطِن', transliteration: 'Al-Batin', meaning: 'الباطن المحتجب' },
+        { id: 77, arabic: 'الْوَالِي', transliteration: 'Al-Wali', meaning: 'الوالي المتصرف' },
+        { id: 78, arabic: 'الْمُتَعَالِي', transliteration: 'Al-Mutaali', meaning: 'المتعالي عن الخلق' },
+        { id: 79, arabic: 'الْبَرّ', transliteration: 'Al-Barr', meaning: 'البر المحسن' },
+        { id: 80, arabic: 'التَّوَاب', transliteration: 'At-Tawwab', meaning: 'التواب على عباده' },
+        { id: 81, arabic: 'الْمُنْتَقِم', transliteration: 'Al-Muntaqim', meaning: 'المنتقم من الكافرين' },
+        { id: 82, arabic: 'العَفُوّ', transliteration: 'Al-Afuww', meaning: 'العفو الصفوح' },
+        { id: 83, arabic: 'الرَّؤُوف', transliteration: 'Ar-Rauf', meaning: 'الرؤوف بعباده' },
+        { id: 84, arabic: 'مَالِكُ الْمُلْك', transliteration: 'Malik-ul-Mulk', meaning: 'مالك الملك كله' },
+        { id: 85, arabic: 'ذُوالْجَلاَلِ وَالإكْرَام', transliteration: 'Dhul-Jalali wal-Ikram', meaning: 'ذو الجلال والإكرام' },
+        { id: 86, arabic: 'الْمُقْسِط', transliteration: 'Al-Muqsit', meaning: 'المقسط العادل' },
+        { id: 87, arabic: 'الْجَامِع', transliteration: 'Al-Jami', meaning: 'الجامع للخلق' },
+        { id: 88, arabic: 'الْغَنِيّ', transliteration: 'Al-Ghaniyy', meaning: 'الغني عن كل شيء' },
+        { id: 89, arabic: 'الْمُغْنِي', transliteration: 'Al-Mughni', meaning: 'المغني للعباد' },
+        { id: 90, arabic: 'اَلْمَانِعُ', transliteration: 'Al-Mani', meaning: 'المانع عمن يشاء' },
+        { id: 91, arabic: 'الضَّارّ', transliteration: 'Ad-Darr', meaning: 'الضار بحكمته' },
+        { id: 92, arabic: 'النَّافِع', transliteration: 'An-Nafi', meaning: 'النافع لخلقه' },
+        { id: 93, arabic: 'النُّور', transliteration: 'An-Nur', meaning: 'النور المبين' },
+        { id: 94, arabic: 'الْهَادِي', transliteration: 'Al-Hadi', meaning: 'الهادي للحق' },
+        { id: 95, arabic: 'الْبَدِيع', transliteration: 'Al-Badi', meaning: 'البديع المبدع' },
+        { id: 96, arabic: 'اَلْبَاقِي', transliteration: 'Al-Baqi', meaning: 'الباقي الدائم' },
+        { id: 97, arabic: 'الْوَارِث', transliteration: 'Al-Warith', meaning: 'الوارث لكل شيء' },
+        { id: 98, arabic: 'الرَّشِيد', transliteration: 'Ar-Rashid', meaning: 'الرشيد الصواب' },
+        { id: 99, arabic: 'الصَّبُور', transliteration: 'As-Sabur', meaning: 'الصبور الحليم' }
+    ];
+
+    selectedName: AllahName | null = null;
+
+    selectName(name: AllahName): void {
+        this.selectedName = this.selectedName?.id === name.id ? null : name;
+    }
+}

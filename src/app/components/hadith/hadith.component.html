@@ -1,0 +1,33 @@
+<div class="hadith-page">
+    <div class="container">
+        <!-- Header -->
+        <div class="page-header fade-in-up">
+            <h1 class="page-title">
+                <span class="title-icon">📚</span>
+                <span>الأحاديث النبوية</span>
+            </h1>
+            <p class="page-subtitle">أحاديث من صحيح البخاري ومسلم</p>
+        </div>
+
+        <!-- Category Filter -->
+        <div class="category-filter fade-in">
+            <button *ngFor="let category of categories" class="category-btn"
+                [class.active]="selectedCategory === category" (click)="selectedCategory = category">
+                {{ category }}
+            </button>
+        </div>
+
+        <!-- Hadiths Grid -->
+        <div class="hadiths-grid">
+            <div *ngFor="let hadith of filteredHadiths; let i = index" class="hadith-card card card-golden fade-in-up"
+                [style.animation-delay]="(i * 0.1) + 's'">
+                <div class="hadith-category">{{ hadith.category }}</div>
+                <p class="hadith-text">{{ hadith.text }}</p>
+                <div class="hadith-footer">
+                    <div class="hadith-narrator">📖 الراوي: {{ hadith.narrator }}</div>
+                    <div class="hadith-source">📕 المصدر: {{ hadith.source }}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

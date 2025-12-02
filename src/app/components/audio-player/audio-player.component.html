@@ -1,0 +1,73 @@
+<div class="audio-player-wrapper" *ngIf="currentSurah">
+    <!-- Minimized Button -->
+    <div class="minimized-player" *ngIf="!isVisible" (click)="toggleVisibility()" [@slideUp]>
+        <div class="minimized-icon">🔊</div>
+        <div class="minimized-info">
+            <span class="minimized-title">{{ currentSurah.title }}</span>
+        </div>
+    </div>
+
+    <!-- Full Player -->
+    <div class="audio-player" *ngIf="isVisible" [@slideUp]>
+        <div class="container">
+            <div class="player-container">
+                <!-- Hide Button -->
+                <button class="hide-player-btn" (click)="toggleVisibility()" title="إخفاء المشغل">
+                    ✕
+                </button>
+
+                <!-- Surah Info -->
+                <div class="player-info">
+                    <div class="surah-icon">📖</div>
+                    <div class="surah-details">
+                        <div class="surah-name">{{ currentSurah.title }}</div>
+                        <div class="surah-meta">سورة رقم {{ currentSurah.number }}</div>
+                    </div>
+                </div>
+
+                <!-- Progress Bar -->
+                <div class="player-progress">
+                    <span class="time-current">{{ formatTime(currentTime) }}</span>
+                    <div class="progress-container">
+                        <div class="progress-bar">
+                            <div class="progress-fill" [style.width.%]="progress"></div>
+                        </div>
+                        <input type="range" min="0" [max]="duration" [value]="currentTime" (input)="onSeek($event)"
+                            class="progress-slider" />
+                    </div>
+                    <span class="time-duration">{{ formatTime(duration) }}</span>
+                </div>
+
+                <!-- Controls -->
+                <div class="player-controls">
+                    <button class="control-btn" (click)="playPrevious()" title="السابق">
+                        <span>⏮</span>
+                    </button>
+
+                    <button class="control-btn play-btn" (click)="togglePlayPause()">
+                        <span *ngIf="!isPlaying" class="play-icon">▶</span>
+                        <span *ngIf="isPlaying" class="pause-icon">⏸</span>
+                    </button>
+
+                    <button class="control-btn" (click)="playNext()" title="التالي">
+                        <span>⏭</span>
+                    </button>
+                </div>
+
+                <!-- Volume Control -->
+                <div class="player-volume">
+                    <button class="control-btn volume-btn" (click)="toggleVolumeSlider()">
+                        <span *ngIf="volume > 50">🔊</span>
+                        <span *ngIf="volume > 0 && volume <= 50">🔉</span>
+                        <span *ngIf="volume === 0">🔇</span>
+                    </button>
+
+                    <div class="volume-slider-container" *ngIf="showVolumeSlider">
+                        <input type="range" min="0" max="100" [value]="volume" (input)="onVolumeChange($event)"
+                            class="volume-slider" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

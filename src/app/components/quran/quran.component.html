@@ -1,0 +1,43 @@
+<div class="quran-page">
+    <div class="container">
+        <!-- Header -->
+        <div class="page-header fade-in-up">
+            <h1 class="page-title">
+                <span class="title-icon">📖</span>
+                <span>القرآن الكريم</span>
+            </h1>
+            <p class="page-subtitle">استمع إلى تلاوة عطرة لكامل القرآن الكريم</p>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="search-container fade-in">
+            <div class="search-box">
+                <span class="search-icon">🔍</span>
+                <input type="text" class="search-input" placeholder="ابحث عن سورة..." [(ngModel)]="searchTerm" />
+            </div>
+        </div>
+
+        <!-- Surahs Grid -->
+        <div class="surahs-grid">
+            <div *ngFor="let surah of filteredSurahs; let i = index" class="surah-card card"
+                [class.playing]="isCurrentSurah(surah)" [style.animation-delay]="(i * 0.05) + 's'"
+                (click)="playSurah(surah)">
+                <div class="surah-number">{{ surah.number }}</div>
+                <div class="surah-info">
+                    <h3 class="surah-title">{{ surah.title }}</h3>
+                </div>
+                <div class="surah-play-btn">
+                    <span *ngIf="!isCurrentSurah(surah)">▶</span>
+                    <span *ngIf="isCurrentSurah(surah)" class="playing-indicator">♫</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- No Results -->
+        <div *ngIf="filteredSurahs.length === 0" class="no-results fade-in">
+            <div class="no-results-icon">🔍</div>
+            <h3>لم يتم العثور على نتائج</h3>
+            <p>جرب البحث بكلمات أخرى</p>
+        </div>
+    </div>
+</div>

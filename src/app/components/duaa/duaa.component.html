@@ -1,0 +1,35 @@
+<div class="duaa-page">
+    <div class="container">
+        <!-- Header -->
+        <div class="page-header fade-in-up">
+            <h1 class="page-title">
+                <span class="title-icon">🤲</span>
+                <span>الأدعية المأثورة</span>
+            </h1>
+            <p class="page-subtitle">أدعية من القرآن والسنة النبوية</p>
+        </div>
+
+        <!-- Duaas Grid -->
+        <div class="duaas-grid">
+            <div *ngFor="let duaa of duaas; let i = index" class="duaa-card card fade-in-up"
+                [style.animation-delay]="(i * 0.1) + 's'">
+                <div class="duaa-title-container">
+                    <h3 class="duaa-title">{{ duaa.title }}</h3>
+                </div>
+
+                <div class="duaa-arabic">
+                    {{ duaa.arabic }}
+                </div>
+
+                <div class="duaa-divider"></div>
+
+                <p class="duaa-meaning">{{ duaa.meaning }}</p>
+
+                <div class="duaa-reference">
+                    <span class="reference-icon">📚</span>
+                    <span>{{ duaa.reference }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

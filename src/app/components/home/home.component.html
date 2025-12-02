@@ -1,0 +1,84 @@
+<div class="home">
+    <!-- Hero Section -->
+    <section class="hero islamic-pattern">
+        <div class="container">
+            <div class="hero-content fade-in-up">
+                <div class="hero-icon">☪</div>
+                <h1 class="hero-title text-glow">موقع إسلامي متكامل</h1>
+                <p class="hero-subtitle">
+                    منصة شاملة تجمع القرآن الكريم، الأحاديث النبوية، الأدعية المأثورة، أسماء الله الحسنى، ومواقيت الصلاة
+                </p>
+                <div class="hero-buttons">
+                    <a routerLink="/quran" class="btn btn-gold">
+                        <span>📖</span>
+                        <span>استمع للقرآن الكريم</span>
+                    </a>
+                    <a routerLink="/prayer-times" class="btn btn-primary">
+                        <span>🕌</span>
+                        <span>مواقيت الصلاة</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-decoration">
+            <div class="decoration-circle circle-1"></div>
+            <div class="decoration-circle circle-2"></div>
+            <div class="decoration-circle circle-3"></div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title fade-in">مميزات الموقع</h2>
+            <div class="features-grid">
+                <div class="feature-card card card-golden fade-in-up" *ngFor="let feature of features; let i = index"
+                    [style.animation-delay]="(i * 0.1) + 's'">
+                    <div class="feature-icon">{{ feature.icon }}</div>
+                    <h3 class="feature-title">{{ feature.title }}</h3>
+                    <p class="feature-description">{{ feature.description }}</p>
+                    <a [routerLink]="feature.route" class="feature-link">
+                        <span>اكتشف المزيد</span>
+                        <span class="arrow">←</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Stats Section -->
+    <section class="stats islamic-pattern">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card glass-effect fade-in">
+                    <div class="stat-number">114</div>
+                    <div class="stat-label">سورة قرآنية</div>
+                </div>
+                <div class="stat-card glass-effect fade-in">
+                    <div class="stat-number">99</div>
+                    <div class="stat-label">اسم من أسماء الله</div>
+                </div>
+                <div class="stat-card glass-effect fade-in">
+                    <div class="stat-number">∞</div>
+                    <div class="stat-label">أدعية وأحاديث</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content card glow">
+                <h2 class="cta-title">ابدأ رحلتك الروحانية</h2>
+                <p class="cta-text">
+                    استمتع بتجربة إسلامية شاملة مع واجهة عصرية وسهلة الاستخدام
+                </p>
+                <div class="cta-buttons">
+                    <a routerLink="/quran" class="btn btn-gold">ابدأ الآن</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

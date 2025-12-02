@@ -1,0 +1,42 @@
+{
+    "name": "islamic-website",
+    "version": "1.0.0",
+    "description": "موقع إسلامي متكامل - Islamic Comprehensive Website",
+    "author": "Islamic Development Team",
+    "license": "MIT",
+    "homepage": ".",
+    "repository": {
+        "type": "git",
+        "url": ""
+    },
+    "bugs": {
+        "url": ""
+    },
+    "keywords": [
+        "islamic",
+        "quran",
+        "hadith",
+        "prayer-times",
+        "duaa",
+        "allah-names",
+        "angular",
+        "rtl",
+        "arabic"
+    ],
+    "features": [
+        "Holy Quran with Audio Player",
+        "Hadith Collection",
+        "Islamic Supplications (Duaa)",
+        "99 Names of Allah",
+        "Prayer Times",
+        "RTL Arabic Design",
+        "Modern Islamic Aesthetics",
+        "Fully Responsive"
+    ],
+    "technologies": {
+        "framework": "Angular 17",
+        "language": "TypeScript",
+        "styling": "CSS3",
+        "state-management": "RxJS"
+    }
+}

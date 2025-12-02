@@ -1,0 +1,134 @@
+.duaa-page {
+    min-height: 100vh;
+    padding: var(--spacing-xl) 0;
+    background: var(--color-dark);
+}
+
+.page-header {
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+}
+
+.page-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-md);
+    font-size: 3rem;
+    margin-bottom: var(--spacing-md);
+}
+
+.title-icon {
+    font-size: 3.5rem;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.page-subtitle {
+    font-size: 1.3rem;
+    color: var(--color-gray-200);
+}
+
+.duaas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+.duaa-card {
+    background: linear-gradient(135deg, var(--color-dark-lighter) 0%, var(--color-dark-light) 100%);
+    padding: var(--spacing-lg);
+    border: 2px solid rgba(212, 175, 55, 0.3);
+}
+
+.duaa-title-container {
+    text-align: center;
+    margin-bottom: var(--spacing-md);
+}
+
+.duaa-title {
+    font-size: 1.5rem;
+    color: var(--color-gold);
+    display: inline-block;
+    padding: var(--spacing-sm) var(--spacing-lg);
+    background: rgba(212, 175, 55, 0.1);
+    border-radius: var(--radius-md);
+    font-family: var(--font-secondary);
+    margin: 0;
+}
+
+.duaa-arabic {
+    font-size: 1.6rem;
+    line-height: 2.2;
+    text-align: center;
+    color: var(--color-white);
+    font-family: var(--font-secondary);
+    padding: var(--spacing-lg);
+    background: rgba(26, 127, 100, 0.1);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--spacing-md);
+    min-height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.duaa-divider {
+    height: 2px;
+    background: var(--gradient-gold);
+    margin: var(--spacing-md) 0;
+    border-radius: 2px;
+}
+
+.duaa-meaning {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--color-gray-200);
+    margin-bottom: var(--spacing-md);
+    text-align: center;
+}
+
+.duaa-reference {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-xs);
+    font-size: 0.95rem;
+    color: var(--color-gold-light);
+    font-weight: 600;
+}
+
+.reference-icon {
+    font-size: 1.2rem;
+}
+
+@media (max-width: 768px) {
+    .page-title {
+        font-size: 2rem;
+        flex-direction: column;
+    }
+
+    .duaas-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .duaa-arabic {
+        font-size: 1.4rem;
+        padding: var(--spacing-md);
+    }
+
+    .duaa-title {
+        font-size: 1.3rem;
+    }
+}

@@ -1,0 +1,28 @@
+<div class="names-page">
+    <div class="container">
+        <!-- Header -->
+        <div class="page-header fade-in-up">
+            <h1 class="page-title">
+                <span class="title-icon">✨</span>
+                <span>أسماء الله الحسنى</span>
+            </h1>
+            <p class="page-subtitle">وَلِلَّهِ الْأَسْمَاءُ الْحُسْنَىٰ فَادْعُوهُ بِهَا</p>
+        </div>
+
+        <!-- Names Grid -->
+        <div class="names-grid">
+            <div *ngFor="let name of allahNames; let i = index" class="name-card card-golden"
+                [class.selected]="selectedName?.id === name.id" [style.animation-delay]="(i * 0.02) + 's'"
+                (click)="selectName(name)">
+                <div class="name-number">{{ name.id }}</div>
+                <div class="name-arabic">{{ name.arabic }}</div>
+                <div class="name-transliteration">{{ name.transliteration }}</div>
+
+                <div class="name-meaning" *ngIf="selectedName?.id === name.id">
+                    <div class="meaning-divider"></div>
+                    <p>{{ name.meaning }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
